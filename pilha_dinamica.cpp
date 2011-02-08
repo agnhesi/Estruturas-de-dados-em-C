@@ -2,27 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Definicao do Nó
 typedef struct noLista{
-    float info; //Valor
-    struct noLista* prox; //Aponta para o nó anterior
+    float info; 
+    struct noLista* prox; 
 }NoLista;
 
 
-//Pilha
 typedef struct pilha{
-    NoLista* prim; //Ponteiro para o último nó 
+    NoLista* prim;  
 }Pilha;
 
 
-//Função para criar a pilha vazia
 Pilha* criarPilha(void){
     Pilha* p = (Pilha*) malloc(sizeof(Pilha));
     p->prim = NULL;
     return p;
 }
 
-//Função para inserir no topo
+
 void push(Pilha* p, float v){
     NoLista* novo = (NoLista*) malloc(sizeof(NoLista));
     if(novo != NULL){
@@ -33,12 +30,12 @@ void push(Pilha* p, float v){
         exit(1);
 }
 
-//Função para verficar se a pilha está vazia
+
 int estaVazia(Pilha* p){
 	return (p->prim==NULL);
 }
 
-//Função para excluir do topo, retorna o valor do nó excluído
+
 float pop(Pilha* p){
     if(estaVazia(p)){
         printf("\nPilha vazia\n");
@@ -51,7 +48,7 @@ float pop(Pilha* p){
     return v;
 }
 
-//Função para liberar
+
 void liberarPilha(Pilha* p){
     NoLista* q = p->prim;
     while(q!=NULL){
@@ -63,7 +60,6 @@ void liberarPilha(Pilha* p){
 }
 
 
-//Função para ver o elemento do topo
 float verTopo(Pilha* p){
     float  v;
     if (p->prim==NULL)
@@ -73,7 +69,7 @@ float verTopo(Pilha* p){
     return v;
 }
 
-//Função para imprimir
+
 void imprimePilha(Pilha* p){
     NoLista* q;
     printf("\nElementos da Pilha:");
