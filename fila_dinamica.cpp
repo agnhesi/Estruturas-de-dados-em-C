@@ -22,7 +22,7 @@ Fila* criarFila(void) {
 }
 
 
-void inserir(Fila* f, float v) {
+void push(Fila* f, float v) {
   Nolista* n = (Nolista*)malloc(sizeof(Nolista));
   n->info = v;
   n->prox = NULL;
@@ -39,7 +39,7 @@ int estaVazia(Fila* f) {
 }
 
 
-float remover(Fila* f) {
+float pop(Fila* f) {
   Nolista* t;
   float valor;
   if(estaVazia(f)){
