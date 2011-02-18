@@ -1,19 +1,49 @@
-void  push(Fila *f, float v){
-    if(f->n==N){ 
-      printf("\nCapacidade da fila esgotada.\n");
-      return;  
-    }else{      
-      f->info[f->ini] = v;
-      f->ini = (f->ini + 1) % f->n;
-    } 
+#include "stdafx.h"
+#include <stdlib.h>
+#include <stdio.h>
+#define N 100
+
+struct fila {
+	int ini, fim;
+	float vet[N];
 }
 
-float pop(Fila *f){
-     float v;
-     if(vazia(f)){
-         printf("\nFila vazia.\n");
-     }else{  
-         f->rem = (F->rem + 1) % F->n;
-     }
-     return v;
+Fila* cria (void){
+	Fila* f = (Fila*) malloc(sizeof(Fila));
+	f->ini = f->fim = 0;
+	return f;
+}
+
+int incr(int i){
+	return (i+1)%N;
+}
+
+void push(Fila* f, float v){
+	if (incr(f->fim) == f->ini) {
+		printf("Capacidade da fila estourou.\n");
+		exit(1);
+	}
+
+	f->vet[f->fim] = v;
+	f->fim = incr(f->fim);
+}
+
+
+float pop(Fila* f){
+	float v;
+	if (vazia(f)) {
+		printf("Fila vazia.\n");
+		exit(1);
+	}
+	v = f->vet[f->ini];
+	f->ini = incr(f->ini);
+	return v;
+}
+
+int vazia (Fila* f){
+	return (f->ini == f->fim);
+}
+
+void libera (Fila* f){
+	free(f);
 }
