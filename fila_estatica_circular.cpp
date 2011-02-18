@@ -8,24 +8,24 @@ struct fila {
 	float vet[N];
 }
 
-Fila* cria (void){
+Fila* criaFilaVazia(void){
 	Fila* f = (Fila*) malloc(sizeof(Fila));
 	f->ini = f->fim = 0;
 	return f;
 }
 
-int incr(int i){
+int incremento(int i){
 	return (i+1)%N;
 }
 
 void push(Fila* f, float v){
-	if (incr(f->fim) == f->ini) {
+	if (incremento(f->fim) == f->ini) {
 		printf("Capacidade da fila estourou.\n");
 		exit(1);
 	}
 
 	f->vet[f->fim] = v;
-	f->fim = incr(f->fim);
+	f->fim = incremento(f->fim);
 }
 
 
