@@ -15,7 +15,7 @@ struct Fila{
 };
 
 
-Fila* criarFila(void) {
+Fila* criarFilaVazia(void) {
   Fila *f= (Fila*)malloc(sizeof(Fila));
   f->ini = f->fim = NULL;
   return f;
@@ -72,7 +72,7 @@ void liberarFila(Fila* f) {
 }
 
 
-void imprimeFila(Fila* f){
+void imprimir(Fila* f){
   Nolista* q;
   for(q = f->ini; q!= NULL; q = q->prox)
     printf("%.2f\n", q->info);
