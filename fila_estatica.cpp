@@ -19,17 +19,17 @@ Fila *criarFilaVazia(){
 
 
 int estaVazia(Fila *f){	
-	return(f->ini==0 && f->n==0);	
+       return(f->ini==0 && f->n==0);	
 }
 
 
 void  push(Fila *f, float v){
     if(f->n==N){ 
-       printf("\nCapacidade da fila esgotada.\n");
-       return;  
+        printf("\nCapacidade da fila esgotada.\n");
+        return;  
     }else{   
-       f->info[f->n]=v;
-       f->n++;
+        f->info[f->n]=v;
+        f->n++;
     } 
 }
 
@@ -37,10 +37,10 @@ void  push(Fila *f, float v){
 float pop(Fila *f){
      float v;
      if(vazia(f)){
-         printf("\nFila vazia.\n");
+          printf("\nFila vazia.\n");
      }else{   
-        v = f->info[f->ini];
-        f->ini++;
+          v = f->info[f->ini];
+          f->ini++;
      }
      return v;
 }
