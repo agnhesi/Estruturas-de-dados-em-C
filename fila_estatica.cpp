@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include <stdio.h>;
 #include <stdlib.h>;
-
 #define N 50
 
 typedef struct fila {
@@ -11,7 +10,7 @@ typedef struct fila {
 }Fila;
 
 
-Fila *criar(){
+Fila *criarFilaVazia(){
       Fila *f = (Fila*)malloc(sizeof(Fila));
       f->n=0;
       f->ini=0; 
@@ -19,21 +18,18 @@ Fila *criar(){
 } 
 
 
-int vazia(Fila *f){
-	if( f != NULL)
-		return(f->ini==0 && f->n==0);
-	else
-		return 2;
+int estaVazia(Fila *f){	
+	return(f->ini==0 && f->n==0);	
 }
 
 
 void  push(Fila *f, float v){
     if(f->n==N){ 
-      printf("\nCapacidade da fila esgotada.\n");
-      return;  
+       printf("\nCapacidade da fila esgotada.\n");
+       return;  
     }else{   
-      f->info[f->n]=v;
-      f->n++;
+       f->info[f->n]=v;
+       f->n++;
     } 
 }
 
